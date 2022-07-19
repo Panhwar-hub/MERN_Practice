@@ -12,10 +12,8 @@ const getData =async (req,res)=>{
 const sendData = async (req, res)=>{
     console.log(req.body)
     const post = new Api({
-        title: req.body.title,
-        description: req.body.description,
-        amount: req.body.amount,
-        image: req.body.image,
+        link: req.body.link,
+        frequency: req.body.frequency
     })
     try{
         const savedPost = await post.save();
@@ -44,7 +42,7 @@ catch(err){
 const updateData = async(req, res)=>{
     try{
         const updatedPost = await Api.updateOne({_id: req.params.pid},
-         {$set : {title: req.body.title,description:req.body.description,amount:req.body.amount,image:req.body.image}})
+         {$set : {link: req.body.link,frequency:req.body.frequency}})
          res.json(updatedPost)
     }
     catch(err){

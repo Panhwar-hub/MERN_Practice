@@ -3,14 +3,12 @@ const mongoose = require('mongoose')
 const bodyParser = require('body-parser')
 const cors= require('cors')
 const app  = express();
-
-const Api = require('./models/Api')
 const ApiContoller = require('./controller/ApiController')
 
 app.use(bodyParser.json())
 app.use(bodyParser.urlencoded({extended:true}))
 app.use(cors())
-mongoose.connect("mongodb://127.0.0.1:27017/taskApi",{useNewUrlParser:true},()=>{
+mongoose.connect("mongodb://127.0.0.1:27017/BookApi",{useNewUrlParser:true},()=>{
     console.log("connected to mongoDB")
 });
 
